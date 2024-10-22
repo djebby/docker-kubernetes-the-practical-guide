@@ -14,6 +14,7 @@ app.use('/feedback', express.static('feedback'));
 
 app.get('/', (req, res) => {
   const filePath = path.join(__dirname, 'pages', 'feedback.html');
+  console.log('test 1,2,3,4...');
   res.sendFile(filePath);
 });
 
@@ -43,4 +44,4 @@ app.post('/create', async (req, res) => {
   });
 });
 
-app.listen(80);
+app.listen(process.env.PORT);

@@ -10,7 +10,13 @@ COPY . .
 
 # VOLUME [ "/app/feedback" ]
 
-EXPOSE 80
+ARG DEFAULT_PORT=80
 
-CMD [ "node", "server.js" ]
+# ENV PORT 80
+
+ENV PORT $DEFAULT_PORT
+
+EXPOSE $PORT
+
+CMD [ "npm", "start" ]
 
