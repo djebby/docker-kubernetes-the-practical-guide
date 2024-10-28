@@ -1,0 +1,18 @@
+### GET Saved Favorites characters and movies
+GET http://localhost:3000/favorites
+
+### POST Favorite movies or character
+POST http://localhost:3000/favorites
+content-type: application/json
+
+{
+  "name": "A New Hope",
+  "type": "movie",
+  "url": "https://swapi.dev/api/films/1/"
+}
+
+### GET Movies
+GET http://localhost:3000/movies
+
+### GET People (character)
+GET http://localhost:3000/people
