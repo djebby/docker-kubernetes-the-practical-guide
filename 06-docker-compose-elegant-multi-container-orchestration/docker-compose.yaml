@@ -1,0 +1,48 @@
+
+services:
+  mongodb:
+    image: 'mongo'
+    volumes:
+      - goals-db:/data/db
+    container_name: mongodb
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: mongoadmin
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
+    env_file:
+      - ./env/mongo.env
+
+  backend:
+    build: ./backend
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    #   args:
+    #     key: 'value'
+    ports:
+      - '80:80'
+    volumes:
+      - ./backend:/app
+      - logs:/app/logs
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+
+
+
+# named volumes should be listed (anonymous volumes & data binded volumes don't need to be montioned)
+volumes:
+  goals-db:
+  logs:
