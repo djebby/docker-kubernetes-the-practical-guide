@@ -28,3 +28,9 @@ In Docker Compose, there's no need to create a network for the services because,
 ```shell
   docker compose build [OPTIONS] [SERVICE...]
 ```
+
+[Run a one-off command on a service](https://docs.docker.com/reference/cli/docker/compose/run/)
+```shell
+  docker compose run [OPTIONS] SERVICE [COMMAND] [ARGS...]
+```
+
