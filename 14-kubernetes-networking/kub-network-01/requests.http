@@ -1,0 +1,33 @@
+### GET /tasks
+GET http://127.0.0.1:60267/tasks
+Authorization: Bearer abc
+
+### POST /tasks
+POST http://127.0.0.1:60267/tasks
+Authorization: Bearer abc
+Content-Type: application/json
+
+{
+    "title": "xyz-xyz-xyz",
+    "text": "xyz"
+}
+
+
+
+### POST /signup
+POST http://127.0.0.1:58146/signup
+Content-Type: application/json
+
+{
+    "email": "d@mail.com",
+    "password": "password@123"
+}
+
+### POST /login
+POST http://127.0.0.1:58146/login
+Content-Type: application/json
+
+{
+    "email": "d@mail.com",
+    "password": "password@123"
+}

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasks-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tasks
+  template:
+    metadata:
+      labels:
+        app: tasks
+    spec:
+      containers:
+      - name: users
+        image: djebby/kub-tasks:latest
+        env:
+          - name: TASKS_FOLDER
+            value: "tasks"
+          - name: AUTH_ADDRESS
+            value: "auth-service.default"
